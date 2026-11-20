@@ -1,0 +1,24 @@
+# Runtime user records and temporary writes
+data/users.json
+data/*.tmp
+
+# Python runtime files
+__pycache__/
+*.py[cod]
+
+# Local tools and editor state
+.kilo/
+.vscode/
+.idea/
+
+# Local reports, screenshots, and OS metadata
+My documents/
+Screenshot*.png
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Local environment and logs
+.env
+.env.*
+*.log

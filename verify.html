@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Prototype external identity verification portal for DLCTS user accounts"
+    />
+    <meta name="theme-color" content="#111b19" />
+    <title>External Verification Prototype | DLCTS</title>
+    <link rel="stylesheet" href="verify.css" />
+  </head>
+  <body>
+    <div class="verifier-shell">
+      <header class="verifier-topbar">
+        <a class="verifier-brand" href="/" aria-label="Return to DLCTS sign in">
+          <span class="verifier-brand__mark">DL</span>
+          <span><strong>DLCTS</strong><small>External Access Authority</small></span>
+        </a>
+        <div class="verifier-topbar__right">
+          <span class="prototype-chip"><i></i>Prototype simulator</span>
+          <a class="return-link" href="/">
+            Return to sign in
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </header>
+
+      <main class="verifier-main">
+        <section class="verifier-hero">
+          <div>
+            <span class="verifier-eyebrow">No-login self-authentication prototype</span>
+            <h1 id="verifier-title">Prototype personnel<br/><em>access authentication.</em></h1>
+            <p id="verifier-intro">For this local demonstration, a new user can authenticate their own pending request. In future, this step will be completed by an authorized government or higher Army authority.</p>
+          </div>
+          <aside class="prototype-notice">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
+            <div><strong>Temporary prototype behavior</strong><span>Self-approval is allowed only in this local demonstration. Production must replace it with an authenticated government or higher Army verification authority.</span></div>
+          </aside>
+        </section>
+
+        <section class="verifier-stats" aria-label="Verification status">
+          <article><span>Pending requests</span><strong id="pending-count">0</strong><small>Awaiting decision</small></article>
+          <article><span>Supported roles</span><strong>4</strong><small>Role-based profiles</small></article>
+          <article><span>Data exposure</span><strong>None</strong><small>Passwords never displayed</small></article>
+        </section>
+
+        <div class="verifier-layout">
+          <section class="request-panel">
+            <header class="panel-head">
+              <div><span>Authentication request</span><h2 id="request-panel-title">Your pending personnel account</h2></div>
+              <button class="refresh-button" id="refresh-button" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0 1 5M20 4v7h-7"/></svg>
+                Refresh
+              </button>
+            </header>
+            <div id="request-list" class="request-list" aria-live="polite">
+              <div class="loading-state"><span></span>Loading account requests...</div>
+            </div>
+          </section>
+
+          <aside class="workflow-panel">
+            <header class="panel-head"><div><span>External handoff</span><h2>Prototype workflow</h2></div></header>
+            <ol class="workflow-list">
+              <li class="is-complete"><span>01</span><div><strong>User registration</strong><p>Personnel submit identity, role, and a protected password.</p></div></li>
+              <li class="is-current"><span>02</span><div><strong>Prototype self-authentication</strong><p>The user approves their own request only for this local demonstration.</p></div></li>
+              <li><span>03</span><div><strong>DLCTS access</strong><p>Approved users return to the main sign-in page with their credentials.</p></div></li>
+            </ol>
+            <div class="privacy-note">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              <p><strong>Future authority handoff</strong><span>Only identity metadata and requested role are shown. A government or higher Army service should own this decision in production.</span></p>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <div class="toast-region" id="toast-region" aria-live="polite"></div>
+    </div>
+    <noscript>This verification prototype requires JavaScript.</noscript>
+    <script defer src="verify.js"></script>
+  </body>
+</html>
